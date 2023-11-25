@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QCoreApplication>
 #include <QDir>
+#include <QDebug>
 
 class WeatherTool
 {
@@ -17,9 +18,9 @@ public:
 //        QString fileName = QCoreApplication::applicationDirPath();
         QDir *dir = new QDir(QDir::currentPath());
         dir->cdUp();
-        QString fileName =  dir->absolutePath() + "/" + QCoreApplication::applicationName();
+        QString fileName =  dir->absolutePath() + "/study_weatherForecast" + "/citycode-2019-08-23.json";
         QJsonParseError err;
-        fileName+="/citycode-2019-08-23.json";
+//        fileName+="/citycode-2019-08-23.json";
         QFile file(fileName);
         bool ret = file.open(QIODevice::ReadOnly|QIODevice::Text);
         QByteArray json = file.readAll();
